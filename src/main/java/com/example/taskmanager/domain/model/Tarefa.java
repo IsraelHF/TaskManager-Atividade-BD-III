@@ -16,6 +16,8 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 
 @Entity
+
+@Entity
 public class Tarefa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
