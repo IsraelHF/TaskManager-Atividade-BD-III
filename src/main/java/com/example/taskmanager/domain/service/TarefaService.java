@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import com.example.taskmanager.domain.Enum.EStatusTarefa;
 import com.example.taskmanager.domain.dto.tarefa.TarefaRequestDTO;
 import com.example.taskmanager.domain.dto.tarefa.TarefaResponseDTO;
-import com.example.taskmanager.domain.exception.ResourceNotFoundException;
+//import com.example.taskmanager.domain.exception.ResourceNotFoundException;
 import com.example.taskmanager.domain.model.Tarefa;
 import com.example.taskmanager.domain.model.Usuario;
 import com.example.taskmanager.domain.repository.TarefaRepository;
@@ -36,7 +36,7 @@ public class TarefaService implements ICRUDService<TarefaRequestDTO, TarefaRespo
     public TarefaResponseDTO obterPorId(Long id) {
         Optional<Tarefa> optTarefa = tarefaRepository.findById(id);
         if(optTarefa.isEmpty()){
-            throw new ResourceNotFoundException("Não foi possivel encontrar a tarefa com o id: " + id);
+            //throw new ResourceNotFoundException("Não foi possivel encontrar a tarefa com o id: " + id);
         }
         return mapper.map(optTarefa.get(), TarefaResponseDTO.class);
     }
