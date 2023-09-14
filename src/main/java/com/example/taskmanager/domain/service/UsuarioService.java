@@ -30,8 +30,7 @@ public class UsuarioService implements ICRUDService<UsuarioRequestDTO, UsuarioRe
     public List<UsuarioResponseDTO> obterTodos() {
         List<Usuario> usuarios = usuarioRepository.findAll();
         return usuarios.stream()
-                .map(usuario -> mapper.map(usuario, UsuarioResponseDTO.class))
-                .collect(Collectors.toList());
+        .map(usuario -> mapper.map(usuario, UsuarioResponseDTO.class)).collect(Collectors.toList());
 
     }
 

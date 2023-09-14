@@ -62,7 +62,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         // Alteração - UsuarioResponseDTO usuarioResponse = mapper.map(usuario,
         // UsuarioResponseDTO.class);
         UsuarioResponseDTO usuarioResponse = new UsuarioResponseDTO();
-        usuarioResponse.setId(usuario.getId());
+        usuarioResponse.setID(usuario.getId());
         usuarioResponse.setNome(usuario.getNome());
         usuarioResponse.setFoto(usuario.getFoto());
         usuarioResponse.setDataCadastro(usuario.getDataCadastro());

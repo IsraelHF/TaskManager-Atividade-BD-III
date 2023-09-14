@@ -23,27 +23,26 @@ public class WebSecurityConfig {
     private UserDetailsSecurityServer userDetailsSecurityServer;
 
     @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
+    public BCryptPasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
-            throws Exception {
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception{
         return authenticationConfiguration.getAuthenticationManager();
     }
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         http.headers().frameOptions().disable().and()
-                .cors().and()
-                .csrf().disable()
-                .authorizeHttpRequests((auth) -> auth.requestMatchers(HttpMethod.POST, "/api/usuarios").permitAll()
-                        .anyRequest().authenticated())
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        .cors().and()
+        .csrf().disable()
+        .authorizeHttpRequests((auth) ->
+         auth.requestMatchers(HttpMethod.POST, "/api/usuarios").permitAll()
+        .anyRequest().authenticated())
+        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilter(new JwtAuthenticationFilter(authenticationManager(authenticationConfiguration), jwtUtil));
-        http.addFilter(new JwtAuthorizationFilter(authenticationManager(authenticationConfiguration), jwtUtil,
-                userDetailsSecurityServer));
+        http.addFilter(new JwtAuthorizationFilter(authenticationManager(authenticationConfiguration), jwtUtil, userDetailsSecurityServer));
 
         return http.build();
     }
