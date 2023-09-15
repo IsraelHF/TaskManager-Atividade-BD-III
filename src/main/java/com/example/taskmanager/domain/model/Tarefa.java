@@ -1,7 +1,6 @@
 package com.example.taskmanager.domain.model;
 
 import java.util.Date;
-import java.util.List;
 
 import com.example.taskmanager.domain.Enum.EStatusTarefa;
 
@@ -11,8 +10,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 
 
@@ -28,9 +25,10 @@ public class Tarefa {
     @JoinColumn(name = "idUsuario")
     private Usuario usuario;
     private EStatusTarefa status;
-    @ManyToMany
-    @JoinTable(name = "tarefa_listadetarefas", joinColumns = @JoinColumn(name = "idTarefa"), inverseJoinColumns = @JoinColumn(name = "idListaDeTarefas"))
-    private List<ListaDeTarefas> listasDeTarefas;
+    @ManyToOne
+    @JoinColumn(name = "idDisciplina")
+    private Disciplina disciplina;
+    private Double nota;
     @Column(nullable = false)
     private Date dataCriacao;
     private Date dataLimite;
@@ -70,12 +68,20 @@ public class Tarefa {
         this.status = status;
     }
 
-    public List<ListaDeTarefas> getListasDeTarefas() {
-        return listasDeTarefas;
+    public Disciplina getDisciplina() {
+        return disciplina;
     }
 
-    public void setListasDeTarefas(List<ListaDeTarefas> listasDeTarefas) {
-        this.listasDeTarefas = listasDeTarefas;
+    public void setDisciplina(Disciplina disciplina) {
+        this.disciplina = disciplina;
+    }
+
+    public Double getNota() {
+        return nota;
+    }
+
+    public void setNota(Double nota) {
+        this.nota = nota;
     }
 
     public Date getDataCriacao() {

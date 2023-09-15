@@ -1,9 +1,9 @@
-package com.example.taskmanager.domain.dto.listadetarefas;
+package com.example.taskmanager.domain.dto.disciplina;
 
-public class ListaDeTarefasRequestDTO {
+public class DisciplinaResponseDTO {
     private Long id;
     private String nome;
-    private String observacao;
+    private String professor;
     
     public Long getId() {
         return id;
@@ -17,10 +17,10 @@ public class ListaDeTarefasRequestDTO {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public String getObservacao() {
-        return observacao;
+    public String getProfessor() {
+        return professor;
     }
-    public void setObservacao(String observacao) {
-        this.observacao = observacao;
+    public void setProfessor(String professor) {
+        this.professor = professor;
     }
 }
