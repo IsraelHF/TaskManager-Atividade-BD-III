@@ -1,16 +1,16 @@
 package com.example.taskmanager.domain.dto.tarefa;
 
 import java.util.Date;
-import java.util.List;
 
 import com.example.taskmanager.domain.Enum.EStatusTarefa;
-import com.example.taskmanager.domain.dto.listadetarefas.ListaDeTarefasRequestDTO;
+import com.example.taskmanager.domain.dto.disciplina.DisciplinaRequestDTO;
 
 public class TarefaRequestDTO {
     private Long id;
     private String descricao;
     private EStatusTarefa status;
-    private List<ListaDeTarefasRequestDTO> listasDeTarefas;
+    private DisciplinaRequestDTO disciplina;
+    private Double nota;
     private Date dataCriacao;
     private Date dataLimite;
     private Date dataTermino;
@@ -34,14 +34,20 @@ public class TarefaRequestDTO {
     public void setStatus(EStatusTarefa status) {
         this.status = status;
     }
-    public List<ListaDeTarefasRequestDTO> getListasDeTarefas() {
-        return listasDeTarefas;
-    }
-    public void setListasDeTarefas(List<ListaDeTarefasRequestDTO> listasDeTarefas) {
-        this.listasDeTarefas = listasDeTarefas;
-    }
     public Date getDataCriacao() {
         return dataCriacao;
+    }
+    public DisciplinaRequestDTO getDisciplina() {
+    return disciplina;
+    }
+    public void setDisciplina(DisciplinaRequestDTO disciplina) {
+        this.disciplina = disciplina;
+    }
+    public Double getNota() {
+        return nota;
+    }
+    public void setNota(Double nota) {
+        this.nota = nota;
     }
     public void setDataCriacao(Date dataCriacao) {
         this.dataCriacao = dataCriacao;
